@@ -11,6 +11,11 @@
     <EngineSource Condition="'$(EngineSource)' == '' and '$(StandardProof)' != 'true' and '$(SabberStoneCorePath)' == '' and !Exists('$(MSBuildThisFileDirectory)../vendor/SabberStoneCore.dll')">true</EngineSource>
     <SabberStoneCorePath Condition="'$(SabberStoneCorePath)' == '' and '$(StandardProof)' != 'true'">$(MSBuildThisFileDirectory)../vendor/SabberStoneCore.dll</SabberStoneCorePath>
   </PropertyGroup>
+  <!-- The local-network multiplayer core (docs/MULTIPLAYER.md) is the only game-side code that opens a socket. It is
+       left out unless asked for with -p:Multiplayer=true, so an ordinary build holds no network code at all. -->
+  <ItemGroup Condition="'$(Multiplayer)' != 'true'">
+    <Compile Remove="Multiplayer/**" />
+  </ItemGroup>
   <PropertyGroup Condition="'$(EngineSource)' == 'true'">
     <!-- Unity loads this engine already; net48 alone does not advertise netstandard2.1 compatibility. -->
     <DefineConstants>$(DefineConstants);ENGINE_SOURCE</DefineConstants>

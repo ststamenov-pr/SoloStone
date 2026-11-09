@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- A terminal table for the multiplayer core: host or join a LAN lobby and play a run without the game client.
+       It exists to test lobbies, chat, runs and spectating between real machines; it draws no cards. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <NuGetAudit>false</NuGetAudit>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="*.cs" />
+    <Compile Include="../../plugin/Multiplayer/**/*.cs" LinkBase="Multiplayer" />
+    <Compile Include="../../plugin/LocalBot.cs" Link="LocalBot.cs" />
+    <ProjectReference Include="../../engine/SabberStoneCore/SabberStoneCore.csproj"
+                      SetTargetFramework="TargetFramework=net10.0" AdditionalProperties="GeneratePackageOnBuild=false" />
+  </ItemGroup>
+</Project>

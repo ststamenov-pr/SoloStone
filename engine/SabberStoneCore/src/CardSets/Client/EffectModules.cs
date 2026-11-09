@@ -25,6 +25,8 @@ namespace SabberStoneCore.CardSets.Client
             Register(BuildABeast.DbfId, "ICC_828p", BuildABeast.Configure);
 
             ClassHeroes.Apply(Register);
+            // Solo-adventure cards the multiplayer run plays with (bosses, drafted hero powers, treasures).
+            DelveCards.Apply(Register);
 
             Sets.LocationCards.Apply(Register);
             // Per-set registries also define the collectible stress corpus.

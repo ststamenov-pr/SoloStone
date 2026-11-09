@@ -44,7 +44,8 @@ Something went wrong? Tell us on [Discord](https://discord.gg/e45QgKHmC2). The f
 
 ## What it is not
 
-- **Not online.** No server, no matchmaking, no multiplayer. SoloStone never logs in anywhere.
+- **Not online.** No server, no matchmaking. SoloStone never logs in anywhere. A local-network multiplayer mode is
+  being built ([MULTIPLAYER.md](docs/MULTIPLAYER.md)); it is not playable in the game yet.
 - **Not a way to get Hearthstone.** You need the game installed through Battle.net first. SoloStone ships no
   Hearthstone program files, art or sound.
 - **Not for sale.** SoloStone takes no money of any kind, from anyone.
@@ -150,6 +151,8 @@ Chat: [Discord](https://discord.gg/e45QgKHmC2)
 | `installer/` | The setup and the launcher (`SoloStone.exe`), with its tests |
 | `facts/` | The card data for the fixed card set, one file per meta |
 | `data/` | Opponent decks and personalities, card pools, shop, packs and progression data |
+| `plugin/Multiplayer/` | The local-network multiplayer core: lobby, run, game sync ([MULTIPLAYER.md](docs/MULTIPLAYER.md)) |
+| `tests/`, `tools/` | Tests for the multiplayer core and a terminal table to try it without the game |
 
 Branch and commit naming: [GIT.md](docs/GIT.md).
 
