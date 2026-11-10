@@ -10,6 +10,22 @@ reference libraries (step 1). Without one you can still build and test the launc
 
 The card and rules test suites are not published yet. What is here are the launcher tests and the build checks below.
 
+## The short way, on Windows
+
+If you only want to build this source and play it, one script does every step below on a Windows 10 or 11 machine
+that has Hearthstone installed, the .NET SDK 10.0.402, Python 3 and Git:
+
+```text
+powershell -ExecutionPolicy Bypass -File tools\run-from-source.ps1
+```
+
+It finds your Hearthstone folder (or takes `-Client "<folder>"`), copies the reference libraries into `references\`,
+fetches and hash-checks the loader files, runs `installer\build.ps1` and starts the setup program it built
+(`installer\out\SoloStone-Setup-0.1.0-dev.exe`). `-NoStart` stops after the build. The full build output goes to
+`%LOCALAPPDATA%\SoloStone-source-build\build.log`. Your Hearthstone folder is only read.
+
+The rest of this page is the same thing step by step.
+
 ## What you need
 
 | Need | Detail |
